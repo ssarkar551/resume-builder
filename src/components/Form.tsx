@@ -9,7 +9,7 @@ const FormDemo = () => (
       <div className="flex flex-row items-start justify-start w-full mb-[10px] space-x-5">
         <Form.Field className="grid mb-[10px]" name="fullname">
           <div className="flex items-baseline justify-between">
-            <Form.Label className="text-[15px] font-medium leading-[35px] dark:text-white text-black">
+            <Form.Label className="text-[15px] font-medium leading-[35px]">
               Full Name
             </Form.Label>
             <Form.Message
@@ -29,7 +29,7 @@ const FormDemo = () => (
         </Form.Field>
         <Form.Field className="grid mb-[10px]" name="phone">
           <div className="flex items-baseline justify-between">
-            <Form.Label className="text-[15px] font-medium leading-[35px] dark:text-white text-black">
+            <Form.Label className="text-[15px] font-medium leading-[35px] ">
               Phone Number
             </Form.Label>
             <Form.Message
@@ -51,7 +51,7 @@ const FormDemo = () => (
       <div className="flex flex-row items-center justify-center w-full mb-[10px] space-x-5">
         <Form.Field className="grid mb-[10px]" name="email">
           <div className="flex items-baseline justify-between">
-            <Form.Label className="text-[15px] font-medium leading-[35px] dark:text-white text-black">
+            <Form.Label className="text-[15px] font-medium leading-[35px]">
               Email
             </Form.Label>
             <Form.Message
@@ -71,7 +71,7 @@ const FormDemo = () => (
         </Form.Field>
         <Form.Field className="grid mb-[10px]" name="address">
           <div className="flex items-baseline justify-between">
-            <Form.Label className="text-[15px] font-medium leading-[35px] dark:text-white text-black">
+            <Form.Label className="text-[15px] font-medium leading-[35px] ">
               Address
             </Form.Label>
             <Form.Message
@@ -91,7 +91,7 @@ const FormDemo = () => (
         </Form.Field>
         <Form.Field className="grid mb-[10px]" name="jobtitle">
           <div className="flex items-baseline justify-between">
-            <Form.Label className="text-[15px] font-medium leading-[35px] dark:text-white text-black">
+            <Form.Label className="text-[15px] font-medium leading-[35px]">
               Job Title
             </Form.Label>
             <Form.Message
@@ -115,7 +115,7 @@ const FormDemo = () => (
     <div className="flex flex-row items-start justify-start w-full mb-[10px] space-x-5">
       <Form.Field className="grid mb-[10px]" name="link1">
         <div className="flex items-baseline justify-between">
-          <Form.Label className="text-[15px] font-medium leading-[35px] dark:text-white text-black">
+          <Form.Label className="text-[15px] font-medium leading-[35px] d">
             Link
           </Form.Label>
         </div>
@@ -128,7 +128,7 @@ const FormDemo = () => (
         </Form.Control>
       </Form.Field>
       <Form.Field name="country">
-        <Form.Label className="text-[15px] font-medium leading-[35px] dark:text-white text-black">Choose </Form.Label>
+        <Form.Label className="text-[15px] font-medium leading-[35px] ">Choose </Form.Label>
         <Form.Control asChild>
           <select className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6">
             <option value="github">Github</option>
@@ -142,7 +142,7 @@ const FormDemo = () => (
     <div className="flex flex-row items-start justify-start w-full mb-[10px] space-x-5">
       <Form.Field className="grid mb-[10px]" name="link1">
         <div className="flex items-baseline justify-between">
-          <Form.Label className="text-[15px] font-medium leading-[35px] dark:text-white text-black">
+          <Form.Label className="text-[15px] font-medium leading-[35px] ">
             Link
           </Form.Label>
         </div>
@@ -155,7 +155,7 @@ const FormDemo = () => (
         </Form.Control>
       </Form.Field>
       <Form.Field name="country">
-        <Form.Label className="text-[15px] font-medium leading-[35px] dark:text-white text-black">Choose </Form.Label>
+        <Form.Label className="text-[15px] font-medium leading-[35px]">Choose </Form.Label>
         <Form.Control asChild>
           <select className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6">
             <option value="github">Github</option>
