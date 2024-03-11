@@ -127,7 +127,7 @@ const FormDemo = () => (
           />
         </Form.Control>
       </Form.Field>
-      <Form.Field name="country">
+      <Form.Field name="site">
         <Form.Label className="text-[15px] font-medium leading-[35px] ">Choose </Form.Label>
         <Form.Control asChild>
           <select className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6">
@@ -154,7 +154,7 @@ const FormDemo = () => (
           />
         </Form.Control>
       </Form.Field>
-      <Form.Field name="country">
+      <Form.Field name="site">
         <Form.Label className="text-[15px] font-medium leading-[35px]">Choose </Form.Label>
         <Form.Control asChild>
           <select className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6">
@@ -166,6 +166,127 @@ const FormDemo = () => (
         </Form.Control>
       </Form.Field>
     </div>
+    <div className="font-bold py-5">Education</div>
+    <div className="flex flex-row items-start justify-start w-full mb-[10px] space-x-5">
+    <Form.Field className="grid mb-[10px]" name="link1">
+        <div className="flex items-baseline justify-between">
+          <Form.Label className="text-[15px] font-medium leading-[35px] d">
+            Institution
+          </Form.Label>
+        </div>
+        <Form.Control asChild>
+          <input
+            className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
+            type="text"
+            required
+          />
+        </Form.Control>
+      </Form.Field>
+      <Form.Field className="grid mb-[10px]" name="link1">
+        <div className="flex items-baseline justify-between">
+          <Form.Label className="text-[15px] font-medium leading-[35px] d">
+            Location
+          </Form.Label>
+        </div>
+        <Form.Control asChild>
+          <input
+            className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
+            type="text"
+            required
+          />
+        </Form.Control>
+      </Form.Field>
+    </div>
+    <div className="flex flex-row items-start justify-start w-full mb-[10px] space-x-5">
+    <Form.Field className="grid mb-[10px]" name="link1">
+        <div className="flex items-baseline justify-between">
+          <Form.Label className="text-[15px] font-medium leading-[35px] d">
+            Degree
+          </Form.Label>
+        </div>
+        <Form.Control asChild>
+          <input
+            className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
+            type="text"
+            required
+          />
+        </Form.Control>
+      </Form.Field>
+      <Form.Field className="grid mb-[10px]" name="link1">
+        <div className="flex items-baseline justify-between">
+          <Form.Label className="text-[15px] font-medium leading-[35px] d">
+            Field of Study
+          </Form.Label>
+        </div>
+        <Form.Control asChild>
+          <input
+            className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
+            type="text"
+            required
+          />
+        </Form.Control>
+      </Form.Field>
+    </div>
+    <div className="flex flex-row items-start justify-start w-full mb-[10px] space-x-5">
+    <Form.Field className="grid mb-[10px]" name="link1">
+        <div className="flex items-baseline justify-between">
+          <Form.Label className="text-[15px] font-medium leading-[35px] d">
+            Start Month/Year
+          </Form.Label>
+        </div>
+        <Form.Control asChild>
+          <input
+            className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
+            type="text"
+            required
+          />
+        </Form.Control>
+      </Form.Field>
+      <Form.Field className="grid mb-[10px]" name="link1">
+        <div className="flex items-baseline justify-between">
+          <Form.Label className="text-[15px] font-medium leading-[35px] d">
+            End Month/Year
+          </Form.Label>
+        </div>
+        <Form.Control asChild>
+          <input
+            className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
+            type="text"
+            required
+          />
+        </Form.Control>
+      </Form.Field>
+    </div>
+    <div className="flex flex-row items-start justify-start w-full mb-[10px] space-x-5">
+    <Form.Field className="grid mb-[10px]" name="score">
+        <div className="flex items-baseline justify-between">
+          <Form.Label className="text-[15px] font-medium leading-[35px] d">
+            Score Type
+          </Form.Label>
+        </div>
+        <Form.Control asChild>
+        <select className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6">
+            <option value="CGPA">CGPA</option>
+            <option value="Percentage">Percenteage</option>
+          </select>
+        </Form.Control>
+      </Form.Field>
+      <Form.Field className="grid mb-[10px]" name="link1">
+        <div className="flex items-baseline justify-between">
+          <Form.Label className="text-[15px] font-medium leading-[35px] d">
+            Score
+          </Form.Label>
+        </div>
+        <Form.Control asChild>
+          <input
+            className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
+            type="text"
+            required
+          />
+        </Form.Control>
+      </Form.Field>
+    </div>
+
 
     {/* <Form.Submit asChild>
       <button className="box-border w-full bg-black dark:bg-white shadow-black text-black dark:text-white inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none shadow-[0_2px_10px] focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none mt-[10px]">
