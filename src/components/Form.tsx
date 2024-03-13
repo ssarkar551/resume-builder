@@ -1,9 +1,15 @@
 "use client";
 import React from "react";
 import * as Form from "@radix-ui/react-form";
+import { PersonalInfo } from "@/types/ResumeDetailsTypes";
 
-const FormDemo = () => (
-  <Form.Root className="w-[500px]">
+type FormDemoProp = {
+  personalInfo: PersonalInfo;
+  onChange: (field: string, value: any) => void;
+};
+
+const FormDemo = ({ personalInfo, onChange }: FormDemoProp) => (
+  <Form.Root className="border rounded-[10px] p-8">
     <div className="font-bold pb-5">Personal Information</div>
     <div className="flex flex-wrap">
       <div className="flex flex-row items-start justify-start w-full mb-[10px] space-x-5">
@@ -23,6 +29,8 @@ const FormDemo = () => (
             <input
               className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
               type="text"
+              value={personalInfo.fullName}
+              onChange={(e) => onChange("fullName", e.target.value)}
               required
             />
           </Form.Control>
@@ -43,6 +51,8 @@ const FormDemo = () => (
             <input
               className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
               type="text"
+              value={personalInfo.phoneNumber}
+              onChange={(e) => onChange("phoneNumber", e.target.value)}
               required
             />
           </Form.Control>
@@ -65,6 +75,8 @@ const FormDemo = () => (
             <input
               className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
               type="email"
+              value={personalInfo?.email}
+              onChange={(e) => onChange("email", e.target.value)}
               required
             />
           </Form.Control>
@@ -85,6 +97,8 @@ const FormDemo = () => (
             <input
               className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
               type="text"
+              value={personalInfo.address}
+              onChange={(e) => onChange("address", e.target.value)}
               required
             />
           </Form.Control>
@@ -105,6 +119,8 @@ const FormDemo = () => (
             <input
               className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
               type="text"
+              value={personalInfo.jobTitle}
+              onChange={(e) => onChange("jobTitle", e.target.value)}
               required
             />
           </Form.Control>
@@ -123,6 +139,7 @@ const FormDemo = () => (
           <input
             className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
             type="text"
+            value={personalInfo?.socialLinks[0].link}
             required
           />
         </Form.Control>
@@ -133,10 +150,32 @@ const FormDemo = () => (
         </Form.Label>
         <Form.Control asChild>
           <select className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6">
-            <option value="github">Github</option>
-            <option value="linkedin">LinkedIn</option>
-            <option value="twitter">Twitter</option>
-            <option value="portfolio">Portfolio</option>
+            <option
+              value="github"
+              selected={personalInfo?.socialLinks[0].socialMedia === "Github"}
+            >
+              Github
+            </option>
+            <option
+              value="linkedin"
+              selected={personalInfo?.socialLinks[0].socialMedia === "LinkedIn"}
+            >
+              LinkedIn
+            </option>
+            <option
+              value="twitter"
+              selected={personalInfo?.socialLinks[0].socialMedia === "Twitter"}
+            >
+              Twitter
+            </option>
+            <option
+              value="portfolio"
+              selected={
+                personalInfo?.socialLinks[0].socialMedia === "Portfolio"
+              }
+            >
+              Portfolio
+            </option>
           </select>
         </Form.Control>
       </Form.Field>
@@ -152,6 +191,7 @@ const FormDemo = () => (
           <input
             className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
             type="text"
+            value={personalInfo?.socialLinks[1].link}
             required
           />
         </Form.Control>
@@ -162,10 +202,32 @@ const FormDemo = () => (
         </Form.Label>
         <Form.Control asChild>
           <select className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6">
-            <option value="github">Github</option>
-            <option value="linkedin">LinkedIn</option>
-            <option value="twitter">Twitter</option>
-            <option value="portfolio">Portfolio</option>
+            <option
+              value="github"
+              selected={personalInfo?.socialLinks[1].socialMedia === "Github"}
+            >
+              Github
+            </option>
+            <option
+              value="linkedin"
+              selected={personalInfo?.socialLinks[1].socialMedia === "LinkedIn"}
+            >
+              LinkedIn
+            </option>
+            <option
+              value="twitter"
+              selected={personalInfo?.socialLinks[1].socialMedia === "Twitter"}
+            >
+              Twitter
+            </option>
+            <option
+              value="portfolio"
+              selected={
+                personalInfo?.socialLinks[1].socialMedia === "Portfolio"
+              }
+            >
+              Portfolio
+            </option>
           </select>
         </Form.Control>
       </Form.Field>
@@ -419,7 +481,7 @@ const FormDemo = () => (
           </Form.Label>
         </div>
         <Form.Control asChild>
-          < input
+          <input
             className="box-border w-[500px] bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
             type="text"
             required
@@ -430,7 +492,7 @@ const FormDemo = () => (
       </Form.Field>
     </div>
     <div className="flex flex-row items-start justify-start w-full mb-[10px] space-x-5">
-    <Form.Field className="grid mb-[10px]" name="tools">
+      <Form.Field className="grid mb-[10px]" name="tools">
         <div className="flex items-baseline justify-between">
           <Form.Label className="text-[15px] font-medium leading-[35px] d">
             Tools/Libraries
@@ -447,7 +509,7 @@ const FormDemo = () => (
       </Form.Field>
     </div>
     <div className="flex flex-row items-start justify-start w-full mb-[10px] space-x-5">
-    <Form.Field className="grid mb-[10px]" name="tools">
+      <Form.Field className="grid mb-[10px]" name="tools">
         <div className="flex items-baseline justify-between">
           <Form.Label className="text-[15px] font-medium leading-[35px] d">
             Tools/Platforms
@@ -571,7 +633,6 @@ const FormDemo = () => (
         </Form.Control>
       </Form.Field>
     </div>
-
 
     {/* <Form.Submit asChild>
       <button className="box-border w-full bg-black dark:bg-white shadow-black text-black dark:text-white inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none shadow-[0_2px_10px] focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none mt-[10px]">
