@@ -6,10 +6,11 @@ import {
   Link,
   StyleSheet,
 } from "@react-pdf/renderer";
-import { PersonalInfo } from "@/types/ResumeDetailsTypes";
+import { Education, PersonalInfo } from "@/types/ResumeDetailsTypes";
 
 type PDFResumeDocProp = {
   personalInfo: PersonalInfo | null;
+  education: Education | null;
 };
 
 const styles = StyleSheet.create({
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function PDFResumeDoc({ personalInfo }: PDFResumeDocProp) {
+export default function PDFResumeDoc({ personalInfo, education }: PDFResumeDocProp) {
   return (
     <Document>
       <Page size="A4" style={styles.page}>
@@ -63,7 +64,16 @@ export default function PDFResumeDoc({ personalInfo }: PDFResumeDocProp) {
               </Link>
             ))}
           </View>
+          <Text style={styles.text}>{education?.institution}</Text>
+          <Text style={styles.text}>{education?.location}</Text>
+          <Text style={styles.text}>{education?.degree}</Text>
+          <Text style={styles.text}>{education?.field}</Text>
+          <Text style={styles.text}>{education?.startDate}</Text>
+          <Text style={styles.text}>{education?.endDate}</Text>
+          <Text style={styles.text}>{education?.scoreType} - {education?.score}</Text>
+          {/* changing score type not reflecting on pdf */}
         </View>
+        
       </Page>
     </Document>
   );

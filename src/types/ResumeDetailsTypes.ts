@@ -11,3 +11,24 @@ export type SocialLinks = {
   socialMedia: string;
   link: string;
 };
+
+export type Education = {
+  institution: string,
+  location: string,
+  degree: string,
+  field: string,
+  startDate: string,
+  endDate: string,
+  scoreType: string,
+  score: string,
+}
+
+export type Experience = {
+  organization: string,
+  location: string,
+  title: string,
+  description: string,
+  startDate: Date,
+  endDate: Date,
+
+}
