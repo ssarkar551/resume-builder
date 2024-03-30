@@ -55,7 +55,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="flex flex-row m-3">
+      <div className="grid lg:grid-cols-2 grid-cols-1 m-3">
         <div className="basis-4/12">
           <FormDemo
             personalInfo={data.personalInfo}
