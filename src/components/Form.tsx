@@ -1,15 +1,16 @@
 "use client";
 import React from "react";
 import * as Form from "@radix-ui/react-form";
-import { Education, PersonalInfo, } from "@/types/ResumeDetailsTypes";
+import { Education, Experience, PersonalInfo, } from "@/types/ResumeDetailsTypes";
 
 type FormDemoProp = {
   personalInfo: PersonalInfo;
   education: Education;
+  experience: Experience;
   onChange: (field: string, value: any) => void;
 };
 
-const FormDemo = ({ personalInfo, education, onChange }: FormDemoProp) => (
+const FormDemo = ({ personalInfo, education, experience, onChange }: FormDemoProp) => (
   <Form.Root className="border rounded-[10px] p-8">
     <div className="font-bold pb-5">Personal Information</div>
     <div className="flex flex-wrap">
@@ -314,8 +315,8 @@ const FormDemo = ({ personalInfo, education, onChange }: FormDemoProp) => (
           <input
             className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
             type="text"
-            value={education.startDate}
-            onChange={(e) => onChange("startDate", e.target.value)}
+            value={education.educationStartDate}
+            onChange={(e) => onChange("educationStartDate", e.target.value)}
             required
           />
         </Form.Control>
@@ -330,8 +331,8 @@ const FormDemo = ({ personalInfo, education, onChange }: FormDemoProp) => (
           <input
             className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
             type="text"
-            value={education.endDate}
-            onChange={(e) => onChange("endDate", e.target.value)}
+            value={education.educationEndDate}
+            onChange={(e) => onChange("educationEndDate", e.target.value)}
             required
           />
         </Form.Control>
@@ -380,6 +381,8 @@ const FormDemo = ({ personalInfo, education, onChange }: FormDemoProp) => (
           <input
             className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
             type="text"
+            value={experience.organization}
+            onChange={(e) => onChange("organization", e.target.value)}
             required
           />
         </Form.Control>
@@ -394,6 +397,8 @@ const FormDemo = ({ personalInfo, education, onChange }: FormDemoProp) => (
           <input
             className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
             type="text"
+            value={experience.location}
+            onChange={(e) => onChange("location", e.target.value)}
             required
           />
         </Form.Control>
@@ -410,6 +415,8 @@ const FormDemo = ({ personalInfo, education, onChange }: FormDemoProp) => (
           <input
             className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
             type="text"
+            value={experience.title}
+            onChange={(e) => onChange("title", e.target.value)}
             required
           />
         </Form.Control>
@@ -425,6 +432,8 @@ const FormDemo = ({ personalInfo, education, onChange }: FormDemoProp) => (
         <input
           className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[80px] appearance-none items-start justify-start rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
           type="textarea"
+          value={experience.description}
+          onChange={(e) => onChange("description", e.target.value)}
           required
         />
       </Form.Control>
@@ -440,6 +449,8 @@ const FormDemo = ({ personalInfo, education, onChange }: FormDemoProp) => (
           <input
             className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
             type="text"
+            value={experience.startDate}
+            onChange={(e) => onChange("startDate", e.target.value)}
             required
           />
         </Form.Control>
@@ -454,7 +465,8 @@ const FormDemo = ({ personalInfo, education, onChange }: FormDemoProp) => (
           <input
             className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
             type="text"
-            required
+            value={experience.endDate}
+            onChange={(e) => onChange("endDate", e.target.value)}
           />
         </Form.Control>
       </Form.Field>

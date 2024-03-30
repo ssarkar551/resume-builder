@@ -4,12 +4,13 @@ import FormDemo from "@/components/Form";
 import { Navbar } from "@/components/Navbar";
 import PDFResumeDoc from "@/components/PDFKit/PDFResumeDoc";
 import PDFViewer from "@/components/PDFKit/PDFViewer";
-import { Education, PersonalInfo } from "@/types/ResumeDetailsTypes";
+import { Education, Experience, PersonalInfo } from "@/types/ResumeDetailsTypes";
 import { useState } from "react";
 
 type resumeDataState = {
   personalInfo: PersonalInfo;
   education: Education;
+  experience: Experience;
 };
 
 const initailState: resumeDataState = {
@@ -29,11 +30,19 @@ const initailState: resumeDataState = {
     location: "ADST",
     degree: "B.Tech",
     field: "ECE",
-    startDate: "24/07/2018",
-    endDate: "30/06/2022",
+    educationStartDate: "24/07/2018",
+    educationEndDate: "30/06/2022",
     scoreType: "CGPA",
     score: "9.03"
   },
+  experience: {
+    organization: "ABC",
+    location: "NGP",
+    title: "SE",
+    description: "fjkhjad",
+    startDate: "27/06/2022"
+
+  }
 };
 
 export default function Home() {
@@ -50,6 +59,10 @@ export default function Home() {
         ...prevData.education,
         [field]: value,
       },
+      experience: {
+        ...prevData.experience,
+        [field]: value
+      }
     }));
   };
   return (
@@ -60,12 +73,13 @@ export default function Home() {
           <FormDemo
             personalInfo={data.personalInfo}
             education={data.education}
+            experience={data.experience}
             onChange={onChangeHandler}
           />
         </div>
         <div className="basis-8/12 border rounded-[10px] ml-4 p-8">
           <PDFViewer width={"100%"} height={"100%"}>
-            <PDFResumeDoc personalInfo={data.personalInfo} education={data.education} />
+            <PDFResumeDoc personalInfo={data.personalInfo} education={data.education} experience={data.experience}/>
           </PDFViewer>
         </div>
       </div>

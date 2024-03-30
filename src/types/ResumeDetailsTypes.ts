@@ -17,8 +17,8 @@ export type Education = {
   location: string,
   degree: string,
   field: string,
-  startDate: string,
-  endDate: string,
+  educationStartDate: string,
+  educationEndDate: string,
   scoreType: string,
   score: string,
 }
@@ -28,7 +28,7 @@ export type Experience = {
   location: string,
   title: string,
   description: string,
-  startDate: Date,
-  endDate: Date,
+  startDate: string,
+  endDate?: string,
 
 }
