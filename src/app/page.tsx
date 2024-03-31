@@ -4,13 +4,15 @@ import FormDemo from "@/components/Form";
 import { Navbar } from "@/components/Navbar";
 import PDFResumeDoc from "@/components/PDFKit/PDFResumeDoc";
 import PDFViewer from "@/components/PDFKit/PDFViewer";
-import { Education, Experience, PersonalInfo } from "@/types/ResumeDetailsTypes";
+import { Education, Experience, PersonalInfo, Project, Skills } from "@/types/ResumeDetailsTypes";
 import { useState } from "react";
 
 type resumeDataState = {
   personalInfo: PersonalInfo;
   education: Education;
   experience: Experience;
+  skills: Skills;
+  project: Project;
 };
 
 const initailState: resumeDataState = {
@@ -42,6 +44,19 @@ const initailState: resumeDataState = {
     description: "fjkhjad",
     startDate: "27/06/2022"
 
+  },
+  skills: {
+    languages: "Java, Javascript",
+    libraries: "ReactJS",
+    platforms: "AWS"
+  },
+  project: {
+    projectTitle: "Resume Builder",
+    technologies: "React, Next",
+    projectLinks: "github.com",
+    description: "project desc",
+    projectStart: "25/05/24",
+    projectEnd: "25/08/24"
   }
 };
 
@@ -62,7 +77,15 @@ export default function Home() {
       experience: {
         ...prevData.experience,
         [field]: value
-      }
+      },
+      skills: {
+        ...prevData.skills,
+        [field]: value
+      },
+      project: {
+        ...prevData.project,
+        [field]: value
+      },
     }));
   };
   return (
@@ -74,12 +97,14 @@ export default function Home() {
             personalInfo={data.personalInfo}
             education={data.education}
             experience={data.experience}
+            skills={data.skills}
+            project={data.project}
             onChange={onChangeHandler}
           />
         </div>
         <div className="basis-8/12 border rounded-[10px] ml-4 p-8">
           <PDFViewer width={"100%"} height={"100%"}>
-            <PDFResumeDoc personalInfo={data.personalInfo} education={data.education} experience={data.experience}/>
+            <PDFResumeDoc personalInfo={data.personalInfo} education={data.education} experience={data.experience} skills={data.skills} project={data.project}/>
           </PDFViewer>
         </div>
       </div>
