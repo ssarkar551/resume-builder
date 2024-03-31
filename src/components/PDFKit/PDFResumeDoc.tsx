@@ -6,12 +6,14 @@ import {
   Link,
   StyleSheet,
 } from "@react-pdf/renderer";
-import { Education, Experience, PersonalInfo } from "@/types/ResumeDetailsTypes";
+import { Education, Experience, PersonalInfo, Project, Skills } from "@/types/ResumeDetailsTypes";
 
 type PDFResumeDocProp = {
   personalInfo: PersonalInfo | null;
   education: Education | null;
   experience: Experience | null;
+  skills: Skills | null;
+  project: Project | null;
 };
 
 const styles = StyleSheet.create({
@@ -48,7 +50,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function PDFResumeDoc({ personalInfo, education, experience }: PDFResumeDocProp) {
+export default function PDFResumeDoc({ personalInfo, education, experience, skills, project }: PDFResumeDocProp) {
   return (
     <Document>
       <Page size="A4" style={styles.page}>
@@ -79,6 +81,15 @@ export default function PDFResumeDoc({ personalInfo, education, experience }: PD
           <Text style={styles.text}>{experience?.description}</Text>
           <Text style={styles.text}>{experience?.startDate}</Text>
           <Text style={styles.text}>{experience?.endDate}</Text>
+          <Text style={styles.text}>{skills?.languages}</Text>
+          <Text style={styles.text}>{skills?.libraries}</Text>
+          <Text style={styles.text}>{skills?.platforms}</Text>
+          <Text style={styles.text}>{project?.projectTitle}</Text>
+          <Text style={styles.text}>{project?.technologies}</Text>
+          <Text style={styles.text}>{project?.projectLinks}</Text>
+          <Text style={styles.text}>{project?.description}</Text>
+          <Text style={styles.text}>{project?.projectStart}</Text>
+          <Text style={styles.text}>{project?.projectEnd}</Text>
           
           
         </View>

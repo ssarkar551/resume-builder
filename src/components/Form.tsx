@@ -1,16 +1,18 @@
 "use client";
 import React from "react";
 import * as Form from "@radix-ui/react-form";
-import { Education, Experience, PersonalInfo, } from "@/types/ResumeDetailsTypes";
+import { Education, Experience, PersonalInfo, Project, Skills, } from "@/types/ResumeDetailsTypes";
 
 type FormDemoProp = {
   personalInfo: PersonalInfo;
   education: Education;
   experience: Experience;
+  skills: Skills;
+  project: Project;
   onChange: (field: string, value: any) => void;
 };
 
-const FormDemo = ({ personalInfo, education, experience, onChange }: FormDemoProp) => (
+const FormDemo = ({ personalInfo, education, experience, skills, project, onChange }: FormDemoProp) => (
   <Form.Root className="border rounded-[10px] p-8">
     <div className="font-bold pb-5">Personal Information</div>
     <div className="flex flex-wrap">
@@ -486,6 +488,8 @@ const FormDemo = ({ personalInfo, education, experience, onChange }: FormDemoPro
             required
             name="languages"
             placeholder="C++, Java, Python"
+            value={skills.languages}
+            onChange={(e) => onChange("languages", e.target.value)}
           />
         </Form.Control>
       </Form.Field>
@@ -503,6 +507,8 @@ const FormDemo = ({ personalInfo, education, experience, onChange }: FormDemoPro
             type="text"
             required
             placeholder="React/Angular"
+            value={skills.libraries}
+            onChange={(e) => onChange("libraries", e.target.value)}
           />
         </Form.Control>
       </Form.Field>
@@ -520,6 +526,8 @@ const FormDemo = ({ personalInfo, education, experience, onChange }: FormDemoPro
             type="text"
             required
             placeholder="GCP/Github"
+            value={skills.platforms}
+            onChange={(e) => onChange("platforms", e.target.value)}
           />
         </Form.Control>
       </Form.Field>
@@ -536,20 +544,8 @@ const FormDemo = ({ personalInfo, education, experience, onChange }: FormDemoPro
           <input
             className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
             type="text"
-            required
-          />
-        </Form.Control>
-      </Form.Field>
-      <Form.Field className="grid mb-[10px]" name="link1">
-        <div className="flex items-baseline justify-between">
-          <Form.Label className="text-[15px] font-medium leading-[35px] d">
-            Location
-          </Form.Label>
-        </div>
-        <Form.Control asChild>
-          <input
-            className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
-            type="text"
+            value={project.projectTitle}
+            onChange={(e) => onChange("projectTitle", e.target.value)}
             required
           />
         </Form.Control>
@@ -566,6 +562,8 @@ const FormDemo = ({ personalInfo, education, experience, onChange }: FormDemoPro
           <input
             className="box-border bg-black dark:bg-white shadow-black inline-flex h-[35px] w-[500px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
             type="text"
+            value={project.technologies}
+            onChange={(e) => onChange("technologies", e.target.value)}
             required
           />
         </Form.Control>
@@ -583,6 +581,8 @@ const FormDemo = ({ personalInfo, education, experience, onChange }: FormDemoPro
           <input
             className="box-border bg-black dark:bg-white shadow-black inline-flex h-[35px] w-[500px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
             type="text"
+            value={project.projectLinks}
+            onChange={(e) => onChange("projectLinks", e.target.value)}
             required
           />
         </Form.Control>
@@ -598,6 +598,8 @@ const FormDemo = ({ personalInfo, education, experience, onChange }: FormDemoPro
         <input
           className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[80px] appearance-none items-start justify-start rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
           type="textarea"
+          value={project.description}
+          onChange={(e) => onChange("description", e.target.value)}
           required
         />
       </Form.Control>
@@ -613,6 +615,8 @@ const FormDemo = ({ personalInfo, education, experience, onChange }: FormDemoPro
           <input
             className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
             type="text"
+            value={project.projectStart}
+            onChange={(e) => onChange("projectStart", e.target.value)}
             required
           />
         </Form.Control>
@@ -627,6 +631,8 @@ const FormDemo = ({ personalInfo, education, experience, onChange }: FormDemoPro
           <input
             className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
             type="text"
+            value={project.projectEnd}
+            onChange={(e) => onChange("projectEnd", e.target.value)}
             required
           />
         </Form.Control>

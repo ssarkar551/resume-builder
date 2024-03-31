@@ -32,3 +32,18 @@ export type Experience = {
   endDate?: string,
 
 }
+
+export type Skills = {
+  languages: string,
+  libraries: string,
+  platforms: string
+}
+
+export type Project = {
+  projectTitle: string,
+  technologies: string,
+  projectLinks: string,
+  description: string,
+  projectStart: string,
+  projectEnd: string
+}
