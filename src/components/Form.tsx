@@ -286,6 +286,7 @@ const FormDemo = ({
           </div>
         </AccordionBody>
       </Accordion>
+      <hr className="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
       <Accordion open={open === 2} placeholder={"Education"}>
         <AccordionHeader
           onClick={() => handleOpen(2)}
@@ -441,6 +442,7 @@ const FormDemo = ({
           </div>
         </AccordionBody>
       </Accordion>
+      <hr className="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
       <Accordion open={open === 3} placeholder={"Experience"}>
         <AccordionHeader
           onClick={() => handleOpen(3)}
@@ -552,6 +554,7 @@ const FormDemo = ({
           </div>
         </AccordionBody>
       </Accordion>
+      <hr className="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
       <Accordion open={open === 4} placeholder={"Skills"}>
         <AccordionHeader onClick={() => handleOpen(4)} placeholder={"Skills"}>
           <div className="font-bold py-5">Skills</div>
@@ -617,6 +620,7 @@ const FormDemo = ({
           </div>
         </AccordionBody>
       </Accordion>
+      <hr className="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
       <Accordion open={open === 5} placeholder={"Project"}>
         <AccordionHeader onClick={() => handleOpen(5)} placeholder={"Projects"}>
           <div className="font-bold py-5">Projects</div>
