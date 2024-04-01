@@ -2,6 +2,11 @@
 import React from "react";
 import * as Form from "@radix-ui/react-form";
 import { Education, Experience, PersonalInfo, Project, Skills, } from "@/types/ResumeDetailsTypes";
+import {
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
+} from "@material-tailwind/react";
 
 type FormDemoProp = {
   personalInfo: PersonalInfo;
@@ -12,10 +17,16 @@ type FormDemoProp = {
   onChange: (field: string, value: any) => void;
 };
 
-const FormDemo = ({ personalInfo, education, experience, skills, project, onChange }: FormDemoProp) => (
+const FormDemo = ({ personalInfo, education, experience, skills, project, onChange }: FormDemoProp) => {
+  const [open, setOpen] = React.useState(1);
+  const handleOpen = (value: number) => setOpen(open === value ? 0 : value);
+
+  return (
   <Form.Root className="border rounded-[10px] p-8">
-    <div className="font-bold pb-5">Personal Information</div>
-    <div className="flex flex-wrap">
+    <Accordion open={open===1} placeholder={"Personal Information"}>
+      <AccordionHeader placeholder={"Personal Information"} onClick={() => handleOpen(1)}><div className="font-bold pb-5">Personal Information</div></AccordionHeader>
+      <AccordionBody>
+      <div className="flex flex-wrap">
       <div className="flex flex-row items-start justify-start w-full mb-[10px] space-x-5">
         <Form.Field className="grid mb-[10px]" name="fullname">
           <div className="flex items-baseline justify-between">
@@ -237,8 +248,15 @@ const FormDemo = ({ personalInfo, education, experience, skills, project, onChan
         </Form.Control>
       </Form.Field>
     </div>
-    <div className="font-bold py-5">Education</div>
-    <div className="flex flex-row items-start justify-start w-full mb-[10px] space-x-5">
+      </AccordionBody>
+
+    </Accordion>
+    <Accordion open={open === 2} placeholder={"Education"}>
+      <AccordionHeader onClick={() => handleOpen(2)} placeholder={"Education"}>
+        <div className="font-bold py-5">Education</div>
+      </AccordionHeader>
+      <AccordionBody>
+      <div className="flex flex-row items-start justify-start w-full mb-[10px] space-x-5">
       <Form.Field className="grid mb-[10px]" name="link1">
         <div className="flex items-baseline justify-between">
           <Form.Label className="text-[15px] font-medium leading-[35px] d">
@@ -371,8 +389,13 @@ const FormDemo = ({ personalInfo, education, experience, skills, project, onChan
         </Form.Control>
       </Form.Field>
     </div>
-    <div className="font-bold py-5">Experience</div>
-    <div className="flex flex-row items-start justify-start w-full mb-[10px] space-x-5">
+      </AccordionBody>
+
+    </Accordion>
+    <Accordion open={open === 3} placeholder={"Experience"}>
+      <AccordionHeader onClick={() => handleOpen(3)} placeholder={"Experience"}><div className="font-bold py-5">Experience</div></AccordionHeader>
+      <AccordionBody>
+      <div className="flex flex-row items-start justify-start w-full mb-[10px] space-x-5">
       <Form.Field className="grid mb-[10px]" name="link1">
         <div className="flex items-baseline justify-between">
           <Form.Label className="text-[15px] font-medium leading-[35px] d">
@@ -473,8 +496,13 @@ const FormDemo = ({ personalInfo, education, experience, skills, project, onChan
         </Form.Control>
       </Form.Field>
     </div>
-    <div className="font-bold py-5">Skills</div>
-    <div className="flex flex-row items-start justify-start w-full mb-[10px] space-x-5">
+      </AccordionBody>
+
+    </Accordion>
+    <Accordion open={open === 4} placeholder={"Skills"}>
+      <AccordionHeader onClick={() => handleOpen(4)} placeholder={"Skills"}><div className="font-bold py-5">Skills</div></AccordionHeader>
+      <AccordionBody>
+      <div className="flex flex-row items-start justify-start w-full mb-[10px] space-x-5">
       <Form.Field className="grid mb-[10px]" name="languages">
         <div className="flex items-baseline justify-between">
           <Form.Label className="text-[15px] font-medium leading-[35px] d">
@@ -532,8 +560,13 @@ const FormDemo = ({ personalInfo, education, experience, skills, project, onChan
         </Form.Control>
       </Form.Field>
     </div>
-    <div className="font-bold py-5">Projects</div>
-    <div className="flex flex-row items-start justify-start w-full mb-[10px] space-x-5">
+      </AccordionBody>
+
+    </Accordion>
+    <Accordion open={open === 5} placeholder={"Project"}>
+      <AccordionHeader onClick={() => handleOpen(5)} placeholder={"Projects"}><div className="font-bold py-5">Projects</div></AccordionHeader>
+      <AccordionBody>
+      <div className="flex flex-row items-start justify-start w-full mb-[10px] space-x-5">
       <Form.Field className="grid mb-[10px]" name="ptitle">
         <div className="flex items-baseline justify-between">
           <Form.Label className="text-[15px] font-medium leading-[35px] d">
@@ -638,13 +671,17 @@ const FormDemo = ({ personalInfo, education, experience, skills, project, onChan
         </Form.Control>
       </Form.Field>
     </div>
+      </AccordionBody>
+
+    </Accordion>
+
 
     {/* <Form.Submit asChild>
       <button className="box-border w-full bg-black dark:bg-white shadow-black text-black dark:text-white inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none shadow-[0_2px_10px] focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none mt-[10px]">
         Post question
       </button>
     </Form.Submit> */}
-  </Form.Root>
-);
+  </Form.Root>)
+};
 
 export default FormDemo;
