@@ -1,14 +1,7 @@
-import {
-  Document,
-  Page,
-  Text,
-  View,
-  Link,
-  StyleSheet,
-} from "@react-pdf/renderer";
-import { Education, Experience, PersonalInfo, Project, Skills } from "@/types/ResumeDetailsTypes";
+import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import { PersonalInfo, Education, Experience, Skills, Project } from "@/types/ResumeDetailsTypes";
 
-type PDFResumeDocProp = {
+type PDFResumeDocProps = {
   personalInfo: PersonalInfo | null;
   education: Education | null;
   experience: Experience | null;
@@ -19,38 +12,36 @@ type PDFResumeDocProp = {
 const styles = StyleSheet.create({
   page: {
     flexDirection: "column",
-    margin: 20,
+    padding: 40,
   },
   section: {
-    marginBottom: 10,
+    marginBottom: 20,
   },
   header: {
     fontSize: 24,
-    marginBottom: 5,
     fontWeight: "bold",
+    marginBottom: 5,
+    textTransform: "uppercase",
+    textAlign: "center",
   },
   subheader: {
     fontSize: 18,
-    marginBottom: 5,
     fontWeight: "bold",
+    marginBottom: 5,
+    textTransform: "uppercase",
   },
   text: {
     fontSize: 12,
     marginBottom: 5,
   },
-  code: {
-    fontFamily: "Courier",
-    fontSize: 10,
-    marginBottom: 5,
-  },
-  link: {
-    color: "blue",
-    textDecoration: "none",
-    fontSize: 12,
+  divider: {
+    borderBottomWidth: 1,
+    borderBottomColor: "black",
+    marginBottom: 10,
   },
 });
 
-export default function PDFResumeDoc({ personalInfo, education, experience, skills, project }: PDFResumeDocProp) {
+export default function PDFResumeDoc({ personalInfo, education, experience, skills, project }: PDFResumeDocProps) {
   return (
     <Document>
       <Page size="A4" style={styles.page}>
@@ -60,40 +51,42 @@ export default function PDFResumeDoc({ personalInfo, education, experience, skil
           <Text style={styles.text}>{personalInfo?.address}</Text>
           <Text style={styles.text}>{personalInfo?.email}</Text>
           <Text style={styles.text}>{personalInfo?.phoneNumber}</Text>
-          <View style={styles.section}>
-            {personalInfo?.socialLinks.map((social, index) => (
-              <Link key={index} style={styles.link} src={social.link}>
-                {social.socialMedia}
-              </Link>
-            ))}
-          </View>
-          <Text style={styles.text}>{education?.institution}</Text>
-          <Text style={styles.text}>{education?.location}</Text>
+        </View>
+        <View style={styles.divider} />
+        <View style={styles.section}>
+          <Text style={styles.subheader}>Education</Text>
           <Text style={styles.text}>{education?.degree}</Text>
           <Text style={styles.text}>{education?.field}</Text>
-          <Text style={styles.text}>{education?.educationStartDate}</Text>
-          <Text style={styles.text}>{education?.educationEndDate}</Text>
+          <Text style={styles.text}>{education?.institution}</Text>
+          <Text style={styles.text}>{education?.location}</Text>
+          <Text style={styles.text}>{education?.educationStartDate} - {education?.educationEndDate}</Text>
           <Text style={styles.text}>{education?.scoreType} - {education?.score}</Text>
-          {/* changing score type not reflecting on pdf */}
+        </View>
+        <View style={styles.divider} />
+        <View style={styles.section}>
+          <Text style={styles.subheader}>Experience</Text>
+          <Text style={styles.text}>{experience?.title}</Text>
           <Text style={styles.text}>{experience?.organization}</Text>
           <Text style={styles.text}>{experience?.location}</Text>
-          <Text style={styles.text}>{experience?.title}</Text>
+          <Text style={styles.text}>{experience?.startDate} - {experience?.endDate}</Text>
           <Text style={styles.text}>{experience?.description}</Text>
-          <Text style={styles.text}>{experience?.startDate}</Text>
-          <Text style={styles.text}>{experience?.endDate}</Text>
+        </View>
+        <View style={styles.divider} />
+        <View style={styles.section}>
+          <Text style={styles.subheader}>Skills</Text>
           <Text style={styles.text}>{skills?.languages}</Text>
           <Text style={styles.text}>{skills?.libraries}</Text>
           <Text style={styles.text}>{skills?.platforms}</Text>
+        </View>
+        <View style={styles.divider} />
+        <View style={styles.section}>
+          <Text style={styles.subheader}>Projects</Text>
           <Text style={styles.text}>{project?.projectTitle}</Text>
           <Text style={styles.text}>{project?.technologies}</Text>
-          <Text style={styles.text}>{project?.projectLinks}</Text>
           <Text style={styles.text}>{project?.description}</Text>
-          <Text style={styles.text}>{project?.projectStart}</Text>
-          <Text style={styles.text}>{project?.projectEnd}</Text>
-          
-          
+          <Text style={styles.text}>{project?.projectStart} - {project?.projectEnd}</Text>
+          <Text style={styles.text}>{project?.projectLinks}</Text>
         </View>
-        
       </Page>
     </Document>
   );
