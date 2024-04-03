@@ -178,7 +178,13 @@ const FormDemo = ({
                   value={personalInfo?.socialLinks[0].link}
                   onChange={(e) => {
                     console.log(e.target.value);
-                    onChange("link", e.target.value);
+                    onChange("link", [
+                      {
+                        socialMedia: personalInfo?.socialLinks[0].socialMedia,
+                        link: e.target.value,
+                      },
+                      personalInfo?.socialLinks[1],
+                    ]);
                   }}
                   required
                 />
@@ -189,9 +195,21 @@ const FormDemo = ({
                 Choose{" "}
               </Form.Label>
               <Form.Control asChild>
-                <select className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6">
+                <select
+                  onChange={(e) => {
+                    console.log(e.target.value);
+                    onChange("link", [
+                      {
+                        socialMedia: e.target.value,
+                        link: personalInfo?.socialLinks[0].link,
+                      },
+                      personalInfo?.socialLinks[1],
+                    ]);
+                  }}
+                  className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
+                >
                   <option
-                    value="github"
+                    value="Github"
                     selected={
                       personalInfo?.socialLinks[0].socialMedia === "Github"
                     }
@@ -199,7 +217,7 @@ const FormDemo = ({
                     Github
                   </option>
                   <option
-                    value="linkedin"
+                    value="LinkedIn"
                     selected={
                       personalInfo?.socialLinks[0].socialMedia === "LinkedIn"
                     }
@@ -207,7 +225,7 @@ const FormDemo = ({
                     LinkedIn
                   </option>
                   <option
-                    value="twitter"
+                    value="Twitter"
                     selected={
                       personalInfo?.socialLinks[0].socialMedia === "Twitter"
                     }
@@ -215,7 +233,7 @@ const FormDemo = ({
                     Twitter
                   </option>
                   <option
-                    value="portfolio"
+                    value="Portfolio"
                     selected={
                       personalInfo?.socialLinks[0].socialMedia === "Portfolio"
                     }
@@ -238,6 +256,16 @@ const FormDemo = ({
                   className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
                   type="text"
                   value={personalInfo?.socialLinks[1].link}
+                  onChange={(e) => {
+                    console.log(e.target.value);
+                    onChange("link", [
+                      personalInfo?.socialLinks[0],
+                      {
+                        socialMedia: personalInfo?.socialLinks[1].socialMedia,
+                        link: e.target.value,
+                      },
+                    ]);
+                  }}
                   required
                 />
               </Form.Control>
@@ -247,9 +275,21 @@ const FormDemo = ({
                 Choose{" "}
               </Form.Label>
               <Form.Control asChild>
-                <select className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6">
+                <select
+                  onChange={(e) => {
+                    console.log(e.target.value);
+                    onChange("link", [
+                      personalInfo?.socialLinks[0],
+                      {
+                        socialMedia: e.target.value,
+                        link: personalInfo?.socialLinks[1].link,
+                      },
+                    ]);
+                  }}
+                  className="box-border w-full bg-black dark:bg-white shadow-black inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
+                >
                   <option
-                    value="github"
+                    value="Github"
                     selected={
                       personalInfo?.socialLinks[1].socialMedia === "Github"
                     }
@@ -257,7 +297,7 @@ const FormDemo = ({
                     Github
                   </option>
                   <option
-                    value="linkedin"
+                    value="LinkedIn"
                     selected={
                       personalInfo?.socialLinks[1].socialMedia === "LinkedIn"
                     }
@@ -265,7 +305,7 @@ const FormDemo = ({
                     LinkedIn
                   </option>
                   <option
-                    value="twitter"
+                    value="Twitter"
                     selected={
                       personalInfo?.socialLinks[1].socialMedia === "Twitter"
                     }
@@ -273,7 +313,7 @@ const FormDemo = ({
                     Twitter
                   </option>
                   <option
-                    value="portfolio"
+                    value="Portfolio"
                     selected={
                       personalInfo?.socialLinks[1].socialMedia === "Portfolio"
                     }
