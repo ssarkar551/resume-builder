@@ -1,6 +1,7 @@
 "use client";
 
-import { account } from "@/Appwrite";
+import Appwrite, { account } from "@/Appwrite";
+import { OAuthProvider } from "appwrite";
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
 
@@ -11,7 +12,7 @@ const LoginPage = () => {
       <div className="mt-5">
         <button className="flex justify-center items-center gap-2 border-2 border-slate-600 px-5 py-2 rounded-sm" 
         onClick={() => {
-            account.createOAuth2Session("google", "http://localhost:3000/dashboard","http://localhost:3000")
+            account.createOAuth2Session(OAuthProvider.Google, "http://localhost:3000/dashboard","http://localhost:3000")
         }}
         >
           <FcGoogle size={30} />
